@@ -1,0 +1,44 @@
+<ion-card *ngIf="!noticia">
+  <ion-card-header>
+    <ion-card-subtitle>
+      <span class="text-primary"><ion-skeleton-text style="width: 10%"></ion-skeleton-text></span>
+      <span class="notica-source-main"><ion-skeleton-text style="width: 20%"></ion-skeleton-text></span>
+      </ion-card-subtitle>
+    <ion-card-title><ion-skeleton-text style="width: 100%"></ion-skeleton-text></ion-card-title>
+  </ion-card-header>
+  <ion-img>
+    <ion-skeleton-text></ion-skeleton-text>
+  </ion-img>
+  <ion-img></ion-img>
+  <ion-card-content>
+    <p>
+      <ion-skeleton-text style="width: 100%"></ion-skeleton-text>
+    </p>
+    <p>
+      <ion-skeleton-text style="width: 80%"></ion-skeleton-text>
+    </p>
+    <p>
+      <ion-skeleton-text style="width: 50%"></ion-skeleton-text>
+    </p>
+  </ion-card-content>
+</ion-card>
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>
+      <span class="text-primary">{{i + 1}}</span>
+      <span class="notica-source-main">{{noticia.source.name}}</span>
+      <div class="noticia-more">
+        <ion-button fill="clear" (click)="lanzarMenu()">
+          <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+        </ion-button>
+      </div>
+      </ion-card-subtitle>
+    <ion-card-title (click)="abrirNoticia()">{{noticia.title}}</ion-card-title>
+  </ion-card-header>
+  <ion-img class="animated fadeIn fast" *ngIf="noticia.urlToImage" [src]="noticia.urlToImage"  (click)="abrirNoticia()"></ion-img>
+  <ion-card-content>
+    <p>
+      {{noticia.description}}
+    </p>
+  </ion-card-content>
+</ion-card>
