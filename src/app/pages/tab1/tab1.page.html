@@ -7,7 +7,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
- 
+  <ion-input [(ngModel)]="ip"></ion-input>
+  <ion-button (click)="peticion()">Prueba</ion-button>
 <app-noticias [noticias]="noticias"></app-noticias>
 
 <ion-infinite-scroll threshold="25%" (ionInfinite)="loadData($event)">
